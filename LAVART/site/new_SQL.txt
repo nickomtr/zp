@@ -1,0 +1,75 @@
+-- Table: public.employee_test
+
+-- DROP TABLE IF EXISTS public.employee_test;
+
+CREATE SEQUENCE IF NOT EXISTS employee_test_id_seq;
+CREATE TABLE IF NOT EXISTS public.employee_test
+(
+    id bigint NOT NULL DEFAULT nextval('employee_test_id_seq'::regclass),
+    employment_date timestamp without time zone,
+    fired_date timestamp without time zone,
+    birthday_date timestamp without time zone,
+    fio character varying COLLATE pg_catalog."default" NOT NULL,
+    job_title character varying(255) COLLATE pg_catalog."default",
+    rank_title smallint,
+    tabel_number character varying(30) COLLATE pg_catalog."default",
+    tabel_filename character varying(255) COLLATE pg_catalog."default",
+    tariff_rate integer,
+    division character varying(255) COLLATE pg_catalog."default",
+    status character varying(255) COLLATE pg_catalog."default",
+    schedule character varying(255) COLLATE pg_catalog."default",
+    shift_hours smallint,
+    skud_access smallint,
+    day_start smallint,
+    boss character varying(255) COLLATE pg_catalog."default",
+    "KTR_category" character varying(50) COLLATE pg_catalog."default",
+    "KTR" double precision,
+    "has_NAX" boolean,
+    "KNAX" double precision,
+    "KVL" double precision,
+    "KVL_last_month" double precision,
+    "division_1C" character varying(255) COLLATE pg_catalog."default",
+    "schedule_1C" character varying(255) COLLATE pg_catalog."default",
+    fio_responsible character varying COLLATE pg_catalog."default",
+    "INN_employee" character varying(50) COLLATE pg_catalog."default",
+    "INN_responsible" character varying(50) COLLATE pg_catalog."default",
+    "INN_company" character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT employee_test_pkey PRIMARY KEY (id)
+)
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.employee_test
+    OWNER to admin;
+-- Index: ix_employee_test_id
+
+-- DROP INDEX IF EXISTS public.ix_employee_test_id;
+
+CREATE INDEX IF NOT EXISTS ix_employee_test_id
+    ON public.employee_test USING btree
+    (id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+--!!!!!!THIS IS NEW
+-- Table: public.website_table_data
+
+-- DROP TABLE IF EXISTS public.website_table_data;
+
+CREATE TABLE IF NOT EXISTS public.website_table_data
+(
+    id integer NOT NULL DEFAULT nextval('website_table_data_id_seq'::regclass),
+    date date,
+    "apparatName" character varying(255) COLLATE pg_catalog."default",
+    fio1 character varying(255) COLLATE pg_catalog."default",
+    fio2 character varying(255) COLLATE pg_catalog."default",
+    fio3 character varying(255) COLLATE pg_catalog."default",
+    fio4 character varying(255) COLLATE pg_catalog."default",
+    fio5 character varying(255) COLLATE pg_catalog."default",
+    tseh character varying(255) COLLATE pg_catalog."default",
+    night boolean,
+    CONSTRAINT website_table_data_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.website_table_data
+    OWNER to postgres;
