@@ -5,4 +5,6 @@
 3) cd frontend
 4) npm install
 5) npm start
-6) python main.py
+6) Необходимо в database.py и env.py поменять DATABASE URL dsn на актуальный.
+7) alembic upgrade head
+8) python main.py
